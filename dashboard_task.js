@@ -20,7 +20,7 @@ const db = require('./db_model');
 const { Keypair } = require('@solana/web3.js'); // TEST For local testing
 
 const main = async () => {
-  console.log('******/  IN Linktree Task FUNCTION /******');
+  console.log('******/  IN Dashboard Data Task FUNCTION /******');
 
   // Load node's keypair from the JSON file
   const keypair = await namespaceWrapper.getSubmitterAccount();
@@ -59,7 +59,7 @@ const main = async () => {
 
     const file = await getFilesFromPath(path);
     const proof_cid = await storageClient.put(file);
-    console.log('User Linktrees proof uploaded to IPFS: ', proof_cid);
+    console.log('Proof uploaded to IPFS: ', proof_cid);
 
     // deleting the file from fs once it is uploaded to IPFS
     await deleteFile(path);

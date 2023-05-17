@@ -9,7 +9,7 @@ const web3 = new Web3();
 const ethUtil = require('ethereumjs-util');
 
 module.exports = async (submission_value, round) => {
-  console.log('******/ Linktree CID VALIDATION Task FUNCTION /******');
+  console.log('******/ Dashboard Data CID VALIDATION Task FUNCTION /******');
   const outputraw = await dataFromCid(submission_value);
   const output = outputraw.data;
   console.log('OUTPUT', output);
@@ -24,7 +24,6 @@ module.exports = async (submission_value, round) => {
   );
   console.log("Is the node's signature on the CID payload correct?", isNode);
 
-  // check each item in the linktrees list and verify that the node is holding that payload, and the signature matches
   let isDashboardData = await verifyDashboardData(output.data);
   console.log('IS DASHBOARD_DATA True?', isDashboardData);
 
