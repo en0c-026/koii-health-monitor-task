@@ -31,6 +31,11 @@ const main = async () => {
   const taskNodes = await getTaskNodes(connection)
   const k2Nodes = await getK2Nodes(connection)
 
+  // PARA MARK AND LUCHO <------------------
+  // ACA ESTA EL FORMAT COMO SE ALMACENA EN IPFS Y QUE DEVUELVE DESPUES LA RUTA
+  // http://localhost:8080/task/FGS6HDJSxEhq39EjerRQwSDzrQSveYy1pBER974wqStZ/dashboard-data
+  // LA IDEA QUE LE DEN FORMATO A k2Nodes y por ahora mantener taskNodes para ver que formato 
+  // le vamos a dar
   const dashboardData = { taskNodes, k2Nodes };
 
   const messageUint8Array = new Uint8Array(
