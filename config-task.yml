@@ -1,5 +1,5 @@
 #Provide the taskId if you are updating the task
-task_id: 'FGS6HDJSxEhq39EjerRQwSDzrQSveYy1pBER974wqStZ'
+task_id: 'Mw3611A4dqhDu7VhiPthwHVyUgyT9GCiDEG2D4pm9qw'
 # Name and desciption of your task
 task_name: 'dashboard-data-task-test'
 task_description: 'dashboard data task'
@@ -24,16 +24,16 @@ submission_window: 200
 
 # Amounts in KOII
 
-minimum_stake_amount: 5
+minimum_stake_amount: 3
 
 # total_bounty_amount cannot be grater than bounty_amount_per_round
 # total bounty is not accepted in case of update task
 total_bounty_amount: 10
 
-bounty_amount_per_round: 1
+bounty_amount_per_round: 0.5
 
 #Number of times allowed to re-submit the distribution  list in case the distribution list is audited
-allowed_failed_distributions: 3
+allowed_failed_distributions: 2
 
 #Space in MBs
 space: 3

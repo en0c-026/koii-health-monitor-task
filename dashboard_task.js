@@ -14,7 +14,7 @@ const storageClient = new Web3Storage({
   token: process.env.SECRET_WEB3_STORAGE_KEY,
 });
 
-const RPC_URL = "https://k2-devnet.koii.live"
+const RPC_URL = "https://k2-testnet.koii.live"
 
 const db = require('./db_model');
 const { Keypair } = require('@solana/web3.js'); // TEST For local testing

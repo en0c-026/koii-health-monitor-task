@@ -394,6 +394,14 @@
     "@jridgewell/resolve-uri" "^3.0.3"
     "@jridgewell/sourcemap-codec" "^1.4.10"
 
+"@maxmind/geoip2-node@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@maxmind/geoip2-node/-/geoip2-node-4.0.0.tgz#5734e3988cafafc3f644666d18b01746fd22ee06"
+  integrity sha512-wD9+XAht2uPKOJDTGw3urr3Gr37T+LAteBMfQ1hWguHQWju+UFHgeuPXlIC7Fu0Y8EcHA2nsg1YjWST4mO7FVw==
+  dependencies:
+    ip6addr "^0.2.5"
+    maxmind "^4.2.0"
+
 "@multiformats/murmur3@^1.0.3":
   version "1.1.3"
   resolved "https://registry.npmjs.org/@multiformats/murmur3/-/murmur3-1.1.3.tgz"
@@ -996,7 +1004,7 @@ abortcontroller-polyfill@^1.7.3:
 
 abstract-leveldown@^7.2.0:
   version "7.2.0"
-  resolved "https://registry.npmjs.org/abstract-leveldown/-/abstract-leveldown-7.2.0.tgz"
+  resolved "https://registry.yarnpkg.com/abstract-leveldown/-/abstract-leveldown-7.2.0.tgz#08d19d4e26fb5be426f7a57004851b39e1795a2e"
   integrity sha512-DnhQwcFEaYsvYDnACLZhMmCWd3rkOeEvglpa4q5i/5Jlm3UIsWaxVzuXvDLFCSCWRO3yy2/+V/G7FusFgejnfQ==
   dependencies:
     buffer "^6.0.3"
@@ -1594,7 +1602,7 @@ caseless@~0.12.0:
 
 catering@^2.0.0, catering@^2.1.0:
   version "2.1.1"
-  resolved "https://registry.npmjs.org/catering/-/catering-2.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/catering/-/catering-2.1.1.tgz#66acba06ed5ee28d5286133982a927de9a04b510"
   integrity sha512-K7Qy8O9p76sL3/3m7/zLKbRkyOlSZAgzEaLhyj2mXS8PsCud2Eo4hAb8aLtZqHh0QGqLcb9dlJSu6lHRVENm1w==
 
 cborg@^1.3.3, cborg@^1.5.4, cborg@^1.6.0, cborg@^1.8.0, cborg@^1.9.4:
@@ -1927,7 +1935,7 @@ defer-to-connect@^2.0.0, defer-to-connect@^2.0.1:
 
 deferred-leveldown@^7.0.0:
   version "7.0.0"
-  resolved "https://registry.npmjs.org/deferred-leveldown/-/deferred-leveldown-7.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/deferred-leveldown/-/deferred-leveldown-7.0.0.tgz#39802715fda6ec06d0159a8b28bd1c7e2b1cf0bf"
   integrity sha512-QKN8NtuS3BC6m0B8vAnBls44tX1WXAFATUsJlruyAYbZpysWV3siH6o/i3g9DCHauzodksO60bdj5NazNbjCmg==
   dependencies:
     abstract-leveldown "^7.2.0"
@@ -3336,6 +3344,14 @@ ip-regex@^4.0.0:
   resolved "https://registry.npmjs.org/ip-regex/-/ip-regex-4.3.0.tgz"
   integrity sha512-B9ZWJxHHOHUhUjCPrMpLD4xEq35bUTClHM1S6CBU5ixQnkZmwipwgc96vAd7AAGM9TGHvJR+Uss+/Ak6UphK+Q==
 
+ip6addr@^0.2.5:
+  version "0.2.5"
+  resolved "https://registry.yarnpkg.com/ip6addr/-/ip6addr-0.2.5.tgz#06e134f44b4e1a684fd91b24035dca7a53b8f759"
+  integrity sha512-9RGGSB6Zc9Ox5DpDGFnJdIeF0AsqXzdH+FspCfPPaU/L/4tI6P+5lIoFUFm9JXs9IrJv1boqAaNCQmoDADTSKQ==
+  dependencies:
+    assert-plus "^1.0.0"
+    jsprim "^2.0.2"
+
 ipaddr.js@1.9.1:
   version "1.9.1"
   resolved "https://registry.npmjs.org/ipaddr.js/-/ipaddr.js-1.9.1.tgz"
@@ -3515,7 +3531,7 @@ is-boolean-object@^1.1.0:
 
 is-buffer@^2.0.5:
   version "2.0.5"
-  resolved "https://registry.npmjs.org/is-buffer/-/is-buffer-2.0.5.tgz"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.5.tgz#ebc252e400d22ff8d77fa09888821a24a658c191"
   integrity sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==
 
 is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.6:
@@ -3929,6 +3945,16 @@ jsprim@^1.2.2:
     json-schema "0.4.0"
     verror "1.10.0"
 
+jsprim@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/jsprim/-/jsprim-2.0.2.tgz#77ca23dbcd4135cd364800d22ff82c2185803d4d"
+  integrity sha512-gqXddjPqQ6G40VdnI6T6yObEC+pDNvyP95wdQhkWkg7crHH3km5qP1FsOXEkzEQwnz6gz5qGTn1c2Y52wP3OyQ==
+  dependencies:
+    assert-plus "1.0.0"
+    extsprintf "1.3.0"
+    json-schema "0.4.0"
+    verror "1.10.0"
+
 "jsx-ast-utils@^2.4.1 || ^3.0.0":
   version "3.3.3"
   resolved "https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-3.3.3.tgz"
@@ -3965,19 +3991,19 @@ kleur@^3.0.3:
 
 level-concat-iterator@^3.0.0:
   version "3.1.0"
-  resolved "https://registry.npmjs.org/level-concat-iterator/-/level-concat-iterator-3.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/level-concat-iterator/-/level-concat-iterator-3.1.0.tgz#5235b1f744bc34847ed65a50548aa88d22e881cf"
   integrity sha512-BWRCMHBxbIqPxJ8vHOvKUsaO0v1sLYZtjN3K2iZJsRBYtp+ONsY6Jfi6hy9K3+zolgQRryhIn2NRZjZnWJ9NmQ==
   dependencies:
     catering "^2.1.0"
 
 level-errors@^3.0.1:
   version "3.0.1"
-  resolved "https://registry.npmjs.org/level-errors/-/level-errors-3.0.1.tgz"
+  resolved "https://registry.yarnpkg.com/level-errors/-/level-errors-3.0.1.tgz#4bed48a33108cd83b0e39fdf9bbd84e96fbbef9f"
   integrity sha512-tqTL2DxzPDzpwl0iV5+rBCv65HWbHp6eutluHNcVIftKZlQN//b6GEnZDM2CvGZvzGYMwyPtYppYnydBQd2SMQ==
 
 level-iterator-stream@^5.0.0:
   version "5.0.0"
-  resolved "https://registry.npmjs.org/level-iterator-stream/-/level-iterator-stream-5.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/level-iterator-stream/-/level-iterator-stream-5.0.0.tgz#85b3438e1b4c54ce5aa8c0eb973cfb628117df9e"
   integrity sha512-wnb1+o+CVFUDdiSMR/ZymE2prPs3cjVLlXuDeSq9Zb8o032XrabGEXcTCsBxprAtseO3qvFeGzh6406z9sOTRA==
   dependencies:
     inherits "^2.0.4"
@@ -3985,12 +4011,12 @@ level-iterator-stream@^5.0.0:
 
 level-supports@^2.0.1:
   version "2.1.0"
-  resolved "https://registry.npmjs.org/level-supports/-/level-supports-2.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/level-supports/-/level-supports-2.1.0.tgz#9af908d853597ecd592293b2fad124375be79c5f"
   integrity sha512-E486g1NCjW5cF78KGPrMDRBYzPuueMZ6VBXHT6gC7A8UYWGiM14fGgp+s/L1oFfDWSPV/+SFkYCmZ0SiESkRKA==
 
 leveldown@^6.1.1:
   version "6.1.1"
-  resolved "https://registry.npmjs.org/leveldown/-/leveldown-6.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/leveldown/-/leveldown-6.1.1.tgz#0f0e480fa88fd807abf94c33cb7e40966ea4b5ce"
   integrity sha512-88c+E+Eizn4CkQOBHwqlCJaTNEjGpaEIikn1S+cINc5E9HEvJ77bqY4JY/HxT5u0caWqsc3P3DcFIKBI1vHt+A==
   dependencies:
     abstract-leveldown "^7.2.0"
@@ -3999,7 +4025,7 @@ leveldown@^6.1.1:
 
 levelup@^5.1.1:
   version "5.1.1"
-  resolved "https://registry.npmjs.org/levelup/-/levelup-5.1.1.tgz"
+  resolved "https://registry.yarnpkg.com/levelup/-/levelup-5.1.1.tgz#9f99699f414ac084a3f8a28fc262a1f49cd7a52c"
   integrity sha512-0mFCcHcEebOwsQuk00WJwjLI6oCjbBuEYdh/RaRqhjnyVlzqf41T1NnDtCedumZ56qyIh8euLFDqV1KfzTAVhg==
   dependencies:
     catering "^2.0.0"
@@ -4128,6 +4154,14 @@ map-obj@^4.0.0:
   version "4.3.0"
   resolved "https://registry.npmjs.org/map-obj/-/map-obj-4.3.0.tgz"
   integrity sha512-hdN1wVrZbb29eBGiGjJbeP8JbKjq1urkHJ/LIP/NY48MZ1QVXUsQBV1G1zvYFHn1XE06cwjBsOI2K3Ulnj1YXQ==
+
+maxmind@^4.2.0:
+  version "4.3.11"
+  resolved "https://registry.yarnpkg.com/maxmind/-/maxmind-4.3.11.tgz#9ea22675b9068a4c98cbc3493ba298485915b440"
+  integrity sha512-tJDrKbUzN6PSA88tWgg0L2R4Ln00XwecYQJPFI+RvlF2k1sx6VQYtuQ1SVxm8+bw5tF7GWV4xyb+3/KyzEpPUw==
+  dependencies:
+    mmdb-lib "2.0.2"
+    tiny-lru "11.0.1"
 
 md5.js@^1.3.4:
   version "1.3.5"
@@ -4305,6 +4339,11 @@ mkdirp@^0.5.5:
   dependencies:
     minimist "^1.2.6"
 
+mmdb-lib@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/mmdb-lib/-/mmdb-lib-2.0.2.tgz#fe60404142c0456c19607c72caa15821731ae957"
+  integrity sha512-shi1I+fCPQonhTi7qyb6hr7hi87R7YS69FlfJiMFuJ12+grx0JyL56gLNzGTYXPU7EhAPkMLliGeyHer0K+AVA==
+
 mock-fs@^4.1.0:
   version "4.14.0"
   resolved "https://registry.yarnpkg.com/mock-fs/-/mock-fs-4.14.0.tgz#ce5124d2c601421255985e6e94da80a7357b1b18"
@@ -4427,7 +4466,7 @@ nanoid@^3.0.2, nanoid@^3.1.20, nanoid@^3.1.23:
 
 napi-macros@~2.0.0:
   version "2.0.0"
-  resolved "https://registry.npmjs.org/napi-macros/-/napi-macros-2.0.0.tgz"
+  resolved "https://registry.yarnpkg.com/napi-macros/-/napi-macros-2.0.0.tgz#2b6bae421e7b96eb687aa6c77a7858640670001b"
   integrity sha512-A0xLykHtARfueITVDernsAWdtIMbOJgKgcluwENp3AlsKN/PloyO10HtmoqnFAQAcxPkgZN7wdfPfEd0zNGxbg==
 
 native-abort-controller@^1.0.3:
@@ -5799,6 +5838,11 @@ timestamp-nano@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/timestamp-nano/-/timestamp-nano-1.0.0.tgz"
   integrity sha512-NO/1CZigzlCWQiWdIGv8ebXt6Uk77zdLz2NE7KcZRU5Egj2+947lzUpk30xQUQlq5dRY25j7ZulG4RfA2DHYfA==
+
+tiny-lru@11.0.1:
+  version "11.0.1"
+  resolved "https://registry.yarnpkg.com/tiny-lru/-/tiny-lru-11.0.1.tgz#629d6ddd88bd03c0929722680167f1feadf576f2"
+  integrity sha512-iNgFugVuQgBKrqeO/mpiTTgmBsTP0WL6yeuLfLs/Ctf0pI/ixGqIRm8sDCwMcXGe9WWvt2sGXI5mNqZbValmJg==
 
 to-regex-range@^5.0.1:
   version "5.0.1"

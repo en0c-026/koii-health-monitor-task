@@ -28,7 +28,7 @@ router.get('/dashboard-data', async (req, res) => {
   const round = await namespaceWrapper.getRound()
   const nodeproofCid = await db.getNodeProofCid(round)
   const outputraw = await dataFromCid(nodeproofCid);
-  let dashboardData = outputraw.data.data
+  let dashboardData = outputraw.data
   dashboardData = dashboardData || '{}';
   return res.status(200).send(dashboardData);
 });
