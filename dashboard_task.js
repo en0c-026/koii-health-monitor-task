@@ -14,10 +14,10 @@ const storageClient = new Web3Storage({
   token: process.env.SECRET_WEB3_STORAGE_KEY,
 });
 
-const RPC_URL = "https://k2-devnet.koii.live"
 
 const db = require('./db_model');
 const { Keypair } = require('@solana/web3.js'); // TEST For local testing
+const { K2_NODE_URL } = require('./init');
 
 const main = async () => {
   console.log('******/  IN Dashboard Data Task FUNCTION /******');
@@ -27,7 +27,7 @@ const main = async () => {
 
   // TEST For local testing, hardcode the keypair
   // const keypair = Keypair.generate(); 
-  const connection = new Connection(RPC_URL);
+  const connection = new Connection(K2_NODE_URL);
   const taskNodes = await getTaskNodes(connection)
   const k2Nodes = await getK2Nodes(connection)
   
