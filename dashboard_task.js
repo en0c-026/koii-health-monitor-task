@@ -14,7 +14,7 @@ const storageClient = new Web3Storage({
   token: process.env.SECRET_WEB3_STORAGE_KEY,
 });
 
-const RPC_URL = "https://k2-testnet.koii.live"
+const RPC_URL = "https://k2-devnet.koii.live"
 
 const db = require('./db_model');
 const { Keypair } = require('@solana/web3.js'); // TEST For local testing
@@ -30,13 +30,8 @@ const main = async () => {
   const connection = new Connection(RPC_URL);
   const taskNodes = await getTaskNodes(connection)
   const k2Nodes = await getK2Nodes(connection)
-
-  // PARA MARK AND LUCHO <------------------
-  // ACA ESTA EL FORMAT COMO SE ALMACENA EN IPFS Y QUE DEVUELVE DESPUES LA RUTA
-  // http://localhost:8080/task/FGS6HDJSxEhq39EjerRQwSDzrQSveYy1pBER974wqStZ/dashboard-data
-  // LA IDEA QUE LE DEN FORMATO A k2Nodes y por ahora mantener taskNodes para ver que formato 
-  // le vamos a dar
-  const dashboardData = { taskNodes, k2Nodes };
+  
+  const dashboardData = { taskNodes, k2Nodes, timestamp: Date.now() };
 
   const messageUint8Array = new Uint8Array(
     Buffer.from(JSON.stringify(dashboardData)),
