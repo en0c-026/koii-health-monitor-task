@@ -26,7 +26,11 @@ router.get("/logs", async (req, res) => {
 
 router.get('/dashboard-data', async (req, res) => {
   const round = await namespaceWrapper.getRound()
-  const nodeproofCid = await db.getNodeProofCid(round - 1)
+  const nodeproofCid = await db.getNodeProofCid(round)
+  if (!round > 0 || !nodeproofCid) {
+    return res.status(200).send("No data available, please try again later.")
+  }
+  
   const outputraw = await dataFromCid(nodeproofCid);
   let dashboardData = outputraw.data
   dashboardData = dashboardData || '{}';
