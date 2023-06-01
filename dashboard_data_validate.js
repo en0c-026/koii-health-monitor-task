@@ -1,14 +1,13 @@
 const dataFromCid = require('./helpers/dataFromCid');
-const db = require('./db_model');
 const nacl = require('tweetnacl');
 const bs58 = require('bs58');
-const { default: axios } = require('axios');
-const { namespaceWrapper } = require('./namespaceWrapper');
-const Web3 = require('web3');
-const web3 = new Web3();
-const ethUtil = require('ethereumjs-util');
+const iso3166 = require('iso-3166-1');
+const getK2Nodes = require('./helpers/getK2Nodes')
+const { K2_NODE_URL } = require('./init');
+const { Connection } = require('@_koi/web3.js');
 
-module.exports = async (submission_value, round) => {
+
+module.exports = async (submission_value) => {
   console.log('******/ Dashboard Data CID VALIDATION Task FUNCTION /******');
   const outputraw = await dataFromCid(submission_value);
   const output = outputraw.data;
@@ -34,13 +33,32 @@ module.exports = async (submission_value, round) => {
 
 async function verifyDashboardData(dashboard_data) {
 
-  // TEST hardcode the node list
-  // const nodeUrlList = [
-  //   "http://localhost:10000",
-  // ]
   let isValid = true;
+  const K2Nodes = dashboard_data.K2Nodes;
+  
+  for (const K2Node in K2Nodes) {
+    const countryExist = iso3166.whereAlpha2(K2Node.country)
+    if (!countryExist) {
+      isValid = false
+    }
+  }
 
-  // check that dashboard_data is valid ?
+  const K2NodesOnline = K2Nodes.filter((node) => node.isAlive)
+  const connection = new Connection(K2_NODE_URL);
+
+  const currentK2Nodes = await getK2Nodes(connection)
+  const averageResponseTime = currentK2Nodes
+    .filter(node => node.alive)
+    .reduce((sum, node) => sum + node.responseTime, 0)
+    / currentK2Nodes.length
+  const threshold = 5
+  const maxAllowedResponseTime = averageResponseTime * threshold
+
+  for (const K2NodeOnline of K2NodesOnline) {
+    if (K2NodeOnline.responseTime > maxAllowedResponseTime || !(K2NodeOnline.responseTime > 0)) {
+      isValid = false
+    }
+  }
 
   return isValid
 
