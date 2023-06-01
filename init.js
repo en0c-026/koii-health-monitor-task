@@ -8,12 +8,13 @@ const SECRET_KEY = process.argv[7];
 const K2_NODE_URL = process.argv[8];
 const SERVICE_URL = process.argv[9];
 const STAKE = Number(process.argv[10]);
+const TASK_NODE_PORT = Number(process.argv[11]);
 
 const app = express();
 
 console.log('SETTING UP EXPRESS');
 app.get('/', (req, res) => {
-  res.send('Dashboard Data task running');
+  res.send('Hello World!');
 });
 
 app.listen(EXPRESS_PORT, () => {
@@ -28,5 +29,6 @@ module.exports = {
   SECRET_KEY,
   K2_NODE_URL,
   SERVICE_URL,
-  STAKE
+  STAKE,
+  TASK_NODE_PORT
 };
