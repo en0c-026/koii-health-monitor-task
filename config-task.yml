@@ -1,7 +1,7 @@
 #Provide the taskId if you are updating the task
-task_id: 'H3E1N6a21ewPKCzHSVajg4tfzxBFbrV1qdAeCWQQkqbY'
+task_id: ''
 # Name and desciption of your task
-task_name: 'dashboard-data-task-test'
+task_name: 'dashboard-data-task-v1'
 task_description: 'dashboard data task'
 
 # network value can be DEVELOPMENT , ARWEAVE or IPFS
@@ -24,13 +24,13 @@ submission_window: 200
 
 # Amounts in KOII
 
-minimum_stake_amount: 3
+minimum_stake_amount: 1
 
 # total_bounty_amount cannot be grater than bounty_amount_per_round
 # total bounty is not accepted in case of update task
 total_bounty_amount: 10
 
-bounty_amount_per_round: 0.5
+bounty_amount_per_round: 0.2
 
 #Number of times allowed to re-submit the distribution  list in case the distribution list is audited
 allowed_failed_distributions: 2
@@ -42,7 +42,7 @@ space: 3
 # To add more global variables and task variables, please refer the type,value,description format shown below
 
 author: 'en0c'
-description: 'dashboard-data-task-test'
+description: 'dashboard-data-task-v1'
 repositoryUrl: 'test'
 imageUrl: 'test'
 requirementsTags:
