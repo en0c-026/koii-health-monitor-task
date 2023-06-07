@@ -1,5 +1,5 @@
 #Provide the taskId if you are updating the task
-task_id: ''
+task_id: '9ZuRbvrHMEmSp1EiXWf71nLNySFXAVQfShzXFL7sqYJM'
 # Name and desciption of your task
 task_name: 'dashboard-data-task-v1'
 task_description: 'dashboard data task'
@@ -24,19 +24,19 @@ submission_window: 200
 
 # Amounts in KOII
 
-minimum_stake_amount: 1
+minimum_stake_amount: 5
 
 # total_bounty_amount cannot be grater than bounty_amount_per_round
 # total bounty is not accepted in case of update task
 total_bounty_amount: 10
 
-bounty_amount_per_round: 0.2
+bounty_amount_per_round: 1
 
 #Number of times allowed to re-submit the distribution  list in case the distribution list is audited
-allowed_failed_distributions: 2
+allowed_failed_distributions: 3
 
 #Space in MBs
-space: 3
+space: 1
 
 # Note that the value field in RequirementTag is optional, so it is up to you to include it or not based on your use case.
 # To add more global variables and task variables, please refer the type,value,description format shown below
