@@ -1,8 +1,8 @@
 #Provide the taskId if you are updating the task
-task_id: '9ZuRbvrHMEmSp1EiXWf71nLNySFXAVQfShzXFL7sqYJM'
+task_id: 'BSKb7vDUomGpgV17vzwh7j1R525cw8NPXoC9RpC2LQiQ'
 # Name and desciption of your task
-task_name: 'dashboard-data-task-v1'
-task_description: 'dashboard data task'
+task_name: 'Koii Health Monitor'
+task_description: 'Koii Health Monitor'
 
 # network value can be DEVELOPMENT , ARWEAVE or IPFS
 task_executable_network: 'DEVELOPMENT'
@@ -17,14 +17,14 @@ task_audit_program: ''
 task_audit_program_id: 'main'
 
 # Total round time of your task : it must be given in slots and each slot is rougly equal to 4ms
-round_time: 600
+round_time: 1000
 
-audit_window: 200
-submission_window: 200
+audit_window: 500
+submission_window: 300
 
 # Amounts in KOII
 
-minimum_stake_amount: 5
+minimum_stake_amount: 2
 
 # total_bounty_amount cannot be grater than bounty_amount_per_round
 # total bounty is not accepted in case of update task
@@ -41,14 +41,14 @@ space: 1
 # Note that the value field in RequirementTag is optional, so it is up to you to include it or not based on your use case.
 # To add more global variables and task variables, please refer the type,value,description format shown below
 
-author: 'en0c'
-description: 'dashboard-data-task-v1'
-repositoryUrl: 'test'
+author: 'en0c <Lucas Jovanovich>'
+description: 'Koii Health Monitor'
+repositoryUrl: 'https://github.com/en0c-026/koii-health-monitor-task'
 imageUrl: 'test'
 requirementsTags:
   - type: TASK_VARIABLE
     value: SECRET_WEB3_STORAGE_KEY
-    description: 'used to connect web3.storage'
+    description: 'Used to upload data yo IPFS - get 1GB for free https://web3.storage'
   - type: CPU
     value: '4-core'
   - type: RAM
