@@ -1,11 +1,10 @@
 const { namespaceWrapper } = require('./namespaceWrapper');
 const dashboard_task = require('./dashboard_task');
 const dashboard_data_validate = require('./dashboard_data_validate');
-const crypto = require('crypto');
-const dataFromCid = require("./helpers/dataFromCid");
 const db = require('./db_model');
 
 class CoreLogic {
+  
   async task() {
 
     // run dashboard-data task

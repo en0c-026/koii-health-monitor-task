@@ -1,26 +1,23 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const fs = require('fs');
 const bs58 = require('bs58');
 const nacl = require('tweetnacl');
 const { Web3Storage, getFilesFromPath } = require('web3.storage');
 const { Connection } = require('@_koi/web3.js');
-
 const { namespaceWrapper } = require('./namespaceWrapper');
 const createFile = require('./helpers/createFile.js');
 const deleteFile = require('./helpers/deleteFile');
-const getTaskNodes = require('./helpers/getTaskNodes')
 const getK2Nodes = require('./helpers/getK2Nodes')
 
 const storageClient = new Web3Storage({
   token: process.env.SECRET_WEB3_STORAGE_KEY,
 });
 
-
-const db = require('./db_model');
-const { Keypair } = require('@solana/web3.js'); // TEST For local testing
 const { K2_NODE_URL } = require('./init');
 
 const main = async () => {
-  console.log('******/  IN Dashboard Data Task FUNCTION /******');
+  console.log('******/  IN Koii Health Monitor Task FUNCTION /******');
 
   // Load node's keypair from the JSON file
   const keypair = await namespaceWrapper.getSubmitterAccount();
@@ -28,10 +25,9 @@ const main = async () => {
   // TEST For local testing, hardcode the keypair
   // const keypair = Keypair.generate(); 
   const connection = new Connection(K2_NODE_URL);
-  const taskNodes = await getTaskNodes(connection)
   const k2Nodes = await getK2Nodes(connection)
   
-  const dashboardData = { taskNodes, k2Nodes, timestamp: Date.now() };
+  const dashboardData = { k2Nodes, timestamp: Date.now() };
 
   const messageUint8Array = new Uint8Array(
     Buffer.from(JSON.stringify(dashboardData)),
