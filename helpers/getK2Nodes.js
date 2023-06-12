@@ -1,7 +1,18 @@
 const net = require('net');
-const { WebServiceClient } = require('@maxmind/geoip2-node');
-const licenseKeyGeoIP2 = "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"
-const client = new WebServiceClient('867600', licenseKeyGeoIP2);
+const { default: axios } = require('axios');
+const GEO2IP_URL = "https://geoip.maxmind.com/geoip/v2.1/country/"
+const GEO2IP_ACCOUNT = "867600"
+const GEO2IP_KEY = "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"
+
+async function geolocalizate(ip) {
+  const credentials = Buffer.from(`${GEO2IP_ACCOUNT}:${GEO2IP_KEY}`).toString('base64');
+  const response = await axios.get(`${GEO2IP_URL}/${ip}`, {
+    headers: {
+      'Authorization': `Basic ${credentials}`
+    }
+  })
+  return response.data
+}
 
 async function measureResponseTime(node) {
   return new Promise((resolve, reject) => {
@@ -21,7 +32,6 @@ async function measureResponseTime(node) {
   });
 }
 
-
 async function getK2Nodes(connection) {
   const nodes = await connection.getClusterNodes()
 
@@ -31,8 +41,7 @@ async function getK2Nodes(connection) {
 
     if (node.rpc) {
       const [host, port] = node.rpc.split(':')
-      const country = (await client.country(host)).country.isoCode
-
+      const country = (await geolocalizate(host)).country.iso_code
       const topology = await measureResponseTime({ host, port })
       formattedData[i] = {
         pubkey: node.pubkey,
@@ -40,10 +49,9 @@ async function getK2Nodes(connection) {
         country,
         ...topology
       }
-      await new Promise((resolve) => setTimeout(resolve, 500))
     } else {
       const [host] = node.gossip.split(':')
-      const country = (await client.country(host)).country.isoCode
+      const country = (await geolocalizate(host)).country.iso_code
 
       formattedData[i] = {
         pubkey: node.pubkey,
@@ -53,6 +61,7 @@ async function getK2Nodes(connection) {
         responseTime: null
       }
     }
+    await new Promise((resolve) => setTimeout(resolve, 500))
 
   }
 
