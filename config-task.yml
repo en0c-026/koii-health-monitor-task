@@ -1,26 +1,26 @@
 #Provide the taskId if you are updating the task
-task_id: 'BSKb7vDUomGpgV17vzwh7j1R525cw8NPXoC9RpC2LQiQ'
+task_id: 'H1327zzdNfwUSCYs8uiKw7CFY2Nv5ym1Y4cewsnwL7jP'
 # Name and desciption of your task
 task_name: 'Koii Health Monitor'
 task_description: 'Koii Health Monitor'
 
 # network value can be DEVELOPMENT , ARWEAVE or IPFS
-task_executable_network: 'DEVELOPMENT'
+task_executable_network: 'IPFS'
 
 # Provide your web3.storage key as it is needed for uploading your metadata
 secret_web3_storage_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEUxMGRBRjk5YjE0OTY3Njk4MkY5QjVCYTEyNTM2OUZkRTlmMjk3RjkiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODQzMzU1OTc0NDcsIm5hbWUiOiJrb2lpLWRhc2hib2FyZCJ9.vXfIywYaenbGkijabFQLXNj74NDOYf1f_aMaezn5RcA'
 
 # Path to your executable webpack if the selected network is IPFS otherwise leave blank
-task_audit_program: ''
+task_audit_program: '/media/en0c/0140ED4757F298A4/projects/koii/dashboard-data-task/dist/main.js'
 
 # Provide your transaction ID in case of ARWEAVE and in case of DEVELOPMENT give your executable name as main otherwise leave blank
-task_audit_program_id: 'main'
+task_audit_program_id: ''
 
 # Total round time of your task : it must be given in slots and each slot is rougly equal to 4ms
-round_time: 1000
+round_time: 600
 
-audit_window: 500
-submission_window: 300
+audit_window: 200
+submission_window: 200
 
 # Amounts in KOII
 
@@ -48,7 +48,7 @@ imageUrl: 'test'
 requirementsTags:
   - type: TASK_VARIABLE
     value: SECRET_WEB3_STORAGE_KEY
-    description: 'Used to upload data yo IPFS - get 1GB for free https://web3.storage'
+    description: 'Used to upload data to IPFS - get 1GB for free https://web3.storage'
   - type: CPU
     value: '4-core'
   - type: RAM
