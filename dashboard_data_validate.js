@@ -34,16 +34,16 @@ module.exports = async (submission_value) => {
 async function verifyDashboardData(dashboard_data) {
 
   let isValid = true;
-  const K2Nodes = dashboard_data.K2Nodes;
+  const k2Nodes = dashboard_data.k2Nodes;
   
-  for (const K2Node in K2Nodes) {
-    const countryExist = iso3166.whereAlpha2(K2Node.country)
+  for (const k2Node in k2Nodes) {
+    const countryExist = iso3166.whereAlpha2(k2Node.country)
     if (!countryExist) {
       isValid = false
     }
   }
 
-  const K2NodesOnline = K2Nodes.filter((node) => node.isAlive)
+  const K2NodesOnline = k2Nodes.filter((node) => node.isAlive)
   const connection = new Connection(K2_NODE_URL);
 
   const currentK2Nodes = await getK2Nodes(connection)
