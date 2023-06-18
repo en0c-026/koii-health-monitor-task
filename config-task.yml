@@ -1,5 +1,5 @@
 #Provide the taskId if you are updating the task
-task_id: 'H1327zzdNfwUSCYs8uiKw7CFY2Nv5ym1Y4cewsnwL7jP'
+task_id: ''
 # Name and desciption of your task
 task_name: 'Koii Health Monitor'
 task_description: 'Koii Health Monitor'
@@ -11,7 +11,7 @@ task_executable_network: 'IPFS'
 secret_web3_storage_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEUxMGRBRjk5YjE0OTY3Njk4MkY5QjVCYTEyNTM2OUZkRTlmMjk3RjkiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODQzMzU1OTc0NDcsIm5hbWUiOiJrb2lpLWRhc2hib2FyZCJ9.vXfIywYaenbGkijabFQLXNj74NDOYf1f_aMaezn5RcA'
 
 # Path to your executable webpack if the selected network is IPFS otherwise leave blank
-task_audit_program: '/media/en0c/0140ED4757F298A4/projects/koii/dashboard-data-task/dist/main.js'
+task_audit_program: '/media/en0c/0140ED4757F298A41/projects/koii/dashboard-data-task/dist/main.js'
 
 # Provide your transaction ID in case of ARWEAVE and in case of DEVELOPMENT give your executable name as main otherwise leave blank
 task_audit_program_id: ''
@@ -49,6 +49,12 @@ requirementsTags:
   - type: TASK_VARIABLE
     value: SECRET_WEB3_STORAGE_KEY
     description: 'Used to upload data to IPFS - get 1GB for free https://web3.storage'
+  - type: TASK_VARIABLE
+    value: SECRET_GEO2IP_ACCOUNT
+    description: 'Used to geolocalization service - sign up for free https://www.maxmind.com/en/geolite2/signup'
+  - type: TASK_VARIABLE
+    value: SECRET_GEO2IP_KEY
+    description: 'Used to geolocalization service - sign up for free https://www.maxmind.com/en/geolite2/signup'
   - type: CPU
     value: '4-core'
   - type: RAM

@@ -1,10 +1,16 @@
+const dotenv = require('dotenv');
+dotenv.config();
 const net = require('net');
 const { default: axios } = require('axios');
 const GEO2IP_URL = "https://geoip.maxmind.com/geoip/v2.1/country/"
-const GEO2IP_ACCOUNT = "867600"
-const GEO2IP_KEY = "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"
+const GEO2IP_ACCOUNT = process.env.SECRET_GEO2IP_ACCOUNT
+const GEO2IP_KEY = process.env.SECRET_GEO2IP_KEY
 
 async function geolocalizate(ip) {
+
+  if (!GEO2IP_ACCOUNT || !GEO2IP_KEY) {
+    throw new Error("env vars GEO2IP_ACCOUNT or GEO2IP_KEY undefined")
+  }
   const credentials = Buffer.from(`${GEO2IP_ACCOUNT}:${GEO2IP_KEY}`).toString('base64');
   const response = await axios.get(`${GEO2IP_URL}/${ip}`, {
     headers: {
