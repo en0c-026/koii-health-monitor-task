@@ -4,12 +4,12 @@ const { namespaceWrapper } = require('./namespaceWrapper');
 const getNodeProofCid = async (round) => {
   const db = await namespaceWrapper.getDb();
 
-  let NodeProofsCidId = getNodeProofCidid(round);
-  if (typeof round === "string" && round.startsWith(node_proofs)) {
-    NodeProofsCidId = round
+  let proofId = getNodeProofId(round);
+  if (typeof round === "string" && round.startsWith("node_proofs:")) {
+    proofId = round
   }
   try {
-    const resp = await db.findOne({ NodeProofsCidId });
+    const resp = await db.findOne({ proofId });
     if (resp) {
       return resp.cid;
     } else {
@@ -21,47 +21,47 @@ const getNodeProofCid = async (round) => {
   }
 }
 
-const setNodeProofCid = async (round, cid) => {
+const setNodeProofCid = async (round, cid, timestamp) => {
   const db = await namespaceWrapper.getDb();
   try {
-    const NodeProofsCidId = getNodeProofCidid(round);
-    await db.insert({ NodeProofsCidId, cid });
+    const proofId = getNodeProofId(round);
+    await db.insert({ proofId, cid, timestamp });
     return console.log("Node CID set");
   } catch (err) {
     return undefined;
   }
 }
 
-const getAllNodeProofCids = async () => {
+const getAllCids = async () => {
   const db = await namespaceWrapper.getDb();
-  const NodeproofsListRaw = await db.find({
+  const nodeProofsRaw = await db.find({
     cid: { $exists: true },
   });
-  let NodeproofsList = NodeproofsListRaw.map(NodeproofsList =>
-    NodeproofsList.cid
+  let cids = nodeProofsRaw.map(nodeProof =>
+    nodeProof.cid
   );
-  return NodeproofsList;
+  return cids;
 }
 
-const getAllNodeProofIds = async () => {
+const getAllRounds = async () => {
   const db = await namespaceWrapper.getDb();
-  const NodeproofsListRaw = await db.find({
+  const nodeProofsRaw = await db.find({
     cid: { $exists: true },
   });
-  let NodeproofIdsList = NodeproofsListRaw.map(NodeproofsList =>
-    NodeproofsList.NodeProofsCidId
-  );
-  return NodeproofIdsList;
+  let rounds = nodeProofsRaw.map(nodeProof => ({
+    round: parseInt(nodeProof.proofId.split(':')[1]),
+    timestamp: nodeProof.timestamp
+  }));
+  return rounds;
 }
 
-
-const getNodeProofCidid = (round) => {
+const getNodeProofId = (round) => {
   return `node_proofs:${round}`;
 }
 
 module.exports = {
   getNodeProofCid,
   setNodeProofCid,
-  getAllNodeProofCids,
-  getAllNodeProofIds
+  getAllCids,
+  getAllRounds
 }
