@@ -5,7 +5,7 @@ const { default: axios } = require('axios');
 const GEO2IP_URL = "https://geoip.maxmind.com/geoip/v2.1/country/"
 const GEO2IP_ACCOUNT = process.env.SECRET_GEO2IP_ACCOUNT
 const GEO2IP_KEY = process.env.SECRET_GEO2IP_KEY
-
+const iso3166 = require("iso-3166-1")
 async function geolocalizate(ip) {
 
   if (!GEO2IP_ACCOUNT || !GEO2IP_KEY) {
@@ -48,11 +48,13 @@ async function getK2Nodes(connection) {
     if (node.rpc) {
       const [host, port] = node.rpc.split(':')
       const country = (await geolocalizate(host)).country.iso_code
+      const country_alpha3 = iso3166.whereAlpha2(country).alpha3
       const topology = await measureResponseTime({ host, port })
       formattedData[i] = {
         pubkey: node.pubkey,
         ip: host,
         country,
+        country_alpha3,
         ...topology
       }
     } else {
