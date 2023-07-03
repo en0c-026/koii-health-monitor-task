@@ -26,8 +26,8 @@ const main = async () => {
   // const keypair = Keypair.generate(); 
   const connection = new Connection(K2_NODE_URL);
   const k2Nodes = await getK2Nodes(connection)
-  
-  const dashboardData = { k2Nodes, timestamp: Date.now() };
+  const timestamp = Date.now()
+  const dashboardData = { k2Nodes, timestamp };
 
   const messageUint8Array = new Uint8Array(
     Buffer.from(JSON.stringify(dashboardData)),
@@ -60,7 +60,7 @@ const main = async () => {
     // deleting the file from fs once it is uploaded to IPFS
     await deleteFile(path);
 
-    return proof_cid;
+    return { proof_cid, timestamp };
 
   } else {
 
