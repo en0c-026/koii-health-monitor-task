@@ -4,7 +4,7 @@ const storageClient = new Web3Storage({
   token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweGY0ODYxMzAzOTdDNTY1QzlDYTRCOTUzZTA2RWQ4NUI4MGRBQzRkYTIiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NjYzNjU1OTk5MDMsIm5hbWUiOiJTb21hIn0.TU-KUFS9vjI9blN5dx6VsLLuIjJnpjPrxDHBvjXQUxw",
 });
 
-module.exports = async (cid) => {
+module.exports = async (gateway, cid) => {
   console.log("CID", cid);
   if (storageClient) {
     const res = await storageClient.get(cid);
@@ -19,8 +19,7 @@ module.exports = async (cid) => {
       const file = await res.files();
       //console.log("FILE", file);
       //console.log("CID", file[0].cid);
-      // const url = `https://${file[0].cid}.ipfs.w3s.link/?filename=${file[0].name}`;
-      const url = `https://ipfs.io/ipfs/${file[0].cid}/?filename=${file[0].name}`;
+      const url = `https://${gateway}/ipfs/${file[0].cid}/?filename=${file[0].name}`;
 
       console.log("URL", url);
       try {
