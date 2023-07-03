@@ -2,14 +2,10 @@ const dataFromCid = require('./helpers/dataFromCid');
 const nacl = require('tweetnacl');
 const bs58 = require('bs58');
 const iso3166 = require('iso-3166-1');
-const getK2Nodes = require('./helpers/getK2Nodes')
-const { K2_NODE_URL } = require('./init');
-const { Connection } = require('@_koi/web3.js');
 
-
-module.exports = async (submission_value) => {
+module.exports = async (gateway, submission_value) => {
   console.log('******/ Dashboard Data CID VALIDATION Task FUNCTION /******');
-  const outputraw = await dataFromCid(submission_value);
+  const outputraw = await dataFromCid(gateway, submission_value);
   const output = outputraw.data;
   console.log('OUTPUT', output);
   console.log('PUBLIC KEY', output.node_publicKey);
@@ -32,30 +28,24 @@ module.exports = async (submission_value) => {
 
 
 async function verifyDashboardData(dashboard_data) {
-
+  console.log('dashboard_data from verifyDashboardData', dashboard_data);
   let isValid = true;
   const k2Nodes = dashboard_data.k2Nodes;
   
   for (const k2Node in k2Nodes) {
     const countryExist = iso3166.whereAlpha2(k2Node.country)
     if (!countryExist) {
+      console.log('fail to validate countryExist from verifyDashboardData');
       isValid = false
     }
   }
 
-  const K2NodesOnline = k2Nodes.filter((node) => node.isAlive)
-  const connection = new Connection(K2_NODE_URL);
+  const k2NodesOnline = k2Nodes.filter((node) => node.alive && !!node.responseTime)
+  const maxAllowedResponseTime = 2000
 
-  const currentK2Nodes = await getK2Nodes(connection)
-  const averageResponseTime = currentK2Nodes
-    .filter(node => node.alive)
-    .reduce((sum, node) => sum + node.responseTime, 0)
-    / currentK2Nodes.length
-  const threshold = 5
-  const maxAllowedResponseTime = averageResponseTime * threshold
-
-  for (const K2NodeOnline of K2NodesOnline) {
-    if (K2NodeOnline.responseTime > maxAllowedResponseTime || !(K2NodeOnline.responseTime > 0)) {
+  for (const k2NodeOnline of k2NodesOnline) {
+    if (k2NodeOnline.responseTime > maxAllowedResponseTime) {
+      console.log('fail to validate responseTime from verifyDashboardData', k2NodeOnline.responseTime, maxAllowedResponseTime);
       isValid = false
     }
   }
