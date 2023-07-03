@@ -286,6 +286,7 @@ class NamespaceWrapper {
   async validateAndVoteOnNodes(validate, round) {
 
     console.log('******/  IN VOTING /******');
+    console.log('start validateAndVoteOnNodes()');
     const taskAccountDataJSON = await this.getTaskState();
 
     console.log(
@@ -341,7 +342,7 @@ class NamespaceWrapper {
                 );
                 console.log('RESPONSE FROM AUDIT FUNCTION', response);
               }
-            } else if (isValid == false) {
+            } else {
               // Call auditSubmission function and isValid is passed as false
               console.log('RAISING AUDIT / VOTING FALSE');
               const response = await this.auditSubmission(
