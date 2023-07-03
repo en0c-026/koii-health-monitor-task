@@ -1,5 +1,5 @@
 #Provide the taskId if you are updating the task
-task_id: ''
+task_id: '8dsnzAXTAXvKtusXsw3Q1qMcG2jyKeig6xH2x7SeVB4V'
 # Name and desciption of your task
 task_name: 'Koii Health Monitor'
 task_description: 'Koii Health Monitor'
@@ -17,7 +17,7 @@ task_audit_program: '/media/en0c/0140ED4757F298A41/projects/koii/dashboard-data-
 task_audit_program_id: ''
 
 # Total round time of your task : it must be given in slots and each slot is rougly equal to 4ms
-round_time: 600
+round_time: 5000
 
 audit_window: 200
 submission_window: 200
@@ -42,7 +42,7 @@ space: 1
 # To add more global variables and task variables, please refer the type,value,description format shown below
 
 author: 'en0c <Lucas Jovanovich>'
-description: 'Koii Health Monitor'
+description: 'This task helps the illusaq team retrieve and store data about the Koii Network found at https://koii.illusaq.com/. The information is archived daily on IPFS as a measure to highlight the decentralization efforts of the Koii Network, improve transparency for Koii stakeholders, and illustrate growth of the network. Run this task to help us help each other!'
 repositoryUrl: 'https://github.com/en0c-026/koii-health-monitor-task'
 imageUrl: 'test'
 requirementsTags:
