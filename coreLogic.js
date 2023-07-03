@@ -10,7 +10,7 @@ class CoreLogic {
     // run dashboard-data task
     console.log('*********task() started*********');
 
-    const proof_cid = await dashboard_task();
+    const {proof_cid, timestamp} = await dashboard_task();
 
     const round = await namespaceWrapper.getRound();
 
@@ -18,7 +18,7 @@ class CoreLogic {
     // const round = 1000
 
     if (proof_cid) {
-      await db.setNodeProofCid(round, proof_cid); // store CID in levelDB
+      await db.setNodeProofCid(round, proof_cid, timestamp); // store CID in levelDB
       console.log('Node Proof CID stored in round', round)
     } else {
       console.log('CID NOT FOUND');
