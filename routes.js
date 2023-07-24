@@ -42,11 +42,18 @@ router.get('/dashboard-data', async (req, res) => {
 
     for (let i = 0; i < k2Nodes.length; i++) {
       const country = k2Nodes[i].country;
+      const alive = k2Nodes[i].alive;
 
       if (table[country]) {
-        table[country] += 1;
+        table[country].available += 1;
+        if (alive) {
+          table[country].online += 1;
+        } 
       } else {
-        table[country] = 1;
+        table[country] = {
+          available: 1,
+          online: alive ? 1 : 0
+        }
       }
     }
 
