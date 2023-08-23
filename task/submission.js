@@ -44,7 +44,6 @@ class Submission {
   async fetchSubmission(round) {
 
     console.log('IN FETCH SUBMISSION');
-    const round = await namespaceWrapper.getRound();
     const proof_cid = await db.getNodeProofCid(round);
     console.log('Monitor Data CID', proof_cid, "in round", round);
 
