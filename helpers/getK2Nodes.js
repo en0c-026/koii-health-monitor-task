@@ -3,13 +3,13 @@ const net = require('net');
 const { default: axios } = require('axios');
 const iso3166 = require("iso-3166-1")
 
-const GEO2IP_URL = process.env.SECRET_GEO2IP_ACCOUNT.GEO2IP_URL
+const GEO2IP_URL = process.env.GEO2IP_URL
 const GEO2IP_ACCOUNT = process.env.SECRET_GEO2IP_ACCOUNT
 const GEO2IP_KEY = process.env.SECRET_GEO2IP_KEY
 
 async function geolocalizate(ip) {
   if (!GEO2IP_URL || !GEO2IP_ACCOUNT || !GEO2IP_KEY) {
-    throw new Error("env vars GEO2IP_ACCOUNT or GEO2IP_KEY undefined")
+    throw new Error("env vars GEO2IP_URL, GEO2IP_ACCOUNT or GEO2IP_KEY undefined")
   }
   const credentials = Buffer.from(`${GEO2IP_ACCOUNT}:${GEO2IP_KEY}`).toString('base64');
   const response = await axios.get(`${GEO2IP_URL}/${ip}`, {
