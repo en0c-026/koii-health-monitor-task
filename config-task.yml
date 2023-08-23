@@ -11,7 +11,8 @@ task_executable_network: "DEVELOPMENT"
 
 # Path to your executable webpack if the selected network is IPFS otherwise leave blank
 task_audit_program: ""
-
+# OPTIONAL only Provide your transaction ID in case of ARWEAVE and in case of DEVELOPMENT give your executable name as main otherwise leave blank
+task_audit_program_id: "main"
 # Total round time of your task : it must be given in slots and each slot is roughly equal to 408ms
 round_time: 4000
 
@@ -61,5 +62,3 @@ requirementsTags:
 # OPTIONAL Only provide the taskId if you are updating the task otherwise leave blank
 task_id: ""
 
-# OPTIONAL only Provide your transaction ID in case of ARWEAVE and in case of DEVELOPMENT give your executable name as main otherwise leave blank
-task_audit_program_id: "main"
