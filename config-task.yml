@@ -1,26 +1,22 @@
-#Provide the taskId if you are updating the task
-task_id: 'FF6VZcRomVRXXotzXFHUmiBjN2poprz41iQvnP1qeACx'
-# Name and desciption of your task
+# Name and metadata of your task
 task_name: 'Koii Health Monitor'
-task_description: 'Koii Health Monitor'
+author: 'en0c <Lucas Jovanovich>'
+description: 'This task helps the illusaq team retrieve and store data about the Koii Network found at https://koii.illusaq.com/. The information is archived daily on IPFS as a measure to highlight the decentralization efforts of the Koii Network, improve transparency for Koii stakeholders, and illustrate growth of the network. Run this task to help us help each other!'
+repositoryUrl: 'https://github.com/en0c-026/koii-health-monitor-task'
+imageUrl: 'imageUrl'
 
-# network value can be DEVELOPMENT , ARWEAVE or IPFS
-task_executable_network: 'IPFS'
 
-# Provide your web3.storage key as it is needed for uploading your metadata
-secret_web3_storage_key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEUxMGRBRjk5YjE0OTY3Njk4MkY5QjVCYTEyNTM2OUZkRTlmMjk3RjkiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2ODQzMzU1OTc0NDcsIm5hbWUiOiJrb2lpLWRhc2hib2FyZCJ9.vXfIywYaenbGkijabFQLXNj74NDOYf1f_aMaezn5RcA'
+# network value can be DEVELOPMENT , ARWEAVE or IPFS, Recommended IPFS as the cli automatically takes care of uploading the executable with the help of web3.js key
+task_executable_network: "DEVELOPMENT"
 
 # Path to your executable webpack if the selected network is IPFS otherwise leave blank
-task_audit_program: '/mnt/0140ED4757F298A4/projects/koii/dashboard-data-task/dist/main.js'
+task_audit_program: ""
 
-# Provide your transaction ID in case of ARWEAVE and in case of DEVELOPMENT give your executable name as main otherwise leave blank
-task_audit_program_id: ''
-
-# Total round time of your task : it must be given in slots and each slot is rougly equal to 4ms
+# Total round time of your task : it must be given in slots and each slot is roughly equal to 408ms
 round_time: 4000
 
-audit_window: 200
-submission_window: 200
+audit_window: 250
+submission_window: 250
 
 # Amounts in KOII
 
@@ -30,21 +26,17 @@ minimum_stake_amount: 2
 # total bounty is not accepted in case of update task
 total_bounty_amount: 10
 
-bounty_amount_per_round: 1
+bounty_amount_per_round: 0.1
 
 #Number of times allowed to re-submit the distribution  list in case the distribution list is audited
 allowed_failed_distributions: 3
 
-#Space in MBs
+#Space in MBs for the account size, that holds the task data
 space: 1
 
 # Note that the value field in RequirementTag is optional, so it is up to you to include it or not based on your use case.
 # To add more global variables and task variables, please refer the type,value,description format shown below
 
-author: 'en0c <Lucas Jovanovich>'
-description: 'This task helps the illusaq team retrieve and store data about the Koii Network found at https://koii.illusaq.com/. The information is archived daily on IPFS as a measure to highlight the decentralization efforts of the Koii Network, improve transparency for Koii stakeholders, and illustrate growth of the network. Run this task to help us help each other!'
-repositoryUrl: 'https://github.com/en0c-026/koii-health-monitor-task'
-imageUrl: 'test'
 requirementsTags:
   - type: TASK_VARIABLE
     value: SECRET_WEB3_STORAGE_KEY
@@ -55,15 +47,19 @@ requirementsTags:
   - type: TASK_VARIABLE
     value: SECRET_GEO2IP_KEY
     description: 'Used to geolocalization service - sign up for free https://www.maxmind.com/en/geolite2/signup'
+  - type: TASK_VARIABLE
+    value: GEO2IP_URL
   - type: CPU
-    value: '4-core'
+    value: "4-core"
   - type: RAM
-    value: '5 GB'
+    value: "5 GB"
   - type: STORAGE
-    value: 'test'
-  - type: NETWORK
-    value: 'test'
-  - type: ARCHITECTURE
-    value: 'AMD'
-  - type: OS
-    value: 'OSX'
+    value: "5 GB"
+
+# OPTIONAL variables below 
+
+# OPTIONAL Only provide the taskId if you are updating the task otherwise leave blank
+task_id: ""
+
+# OPTIONAL only Provide your transaction ID in case of ARWEAVE and in case of DEVELOPMENT give your executable name as main otherwise leave blank
+task_audit_program_id: "main"
