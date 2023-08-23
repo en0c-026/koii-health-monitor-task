@@ -8,9 +8,6 @@ data/*
 executables/*
 namespace/*
 config/*
-taskStateInfoKeypair.json
-localKOIIDB.db
 .env
 taskStateInfoKeypair.json
-linktrees
-test/testdb
+localKOIIDB.db

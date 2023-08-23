@@ -3,9 +3,9 @@ const nacl = require('tweetnacl');
 const bs58 = require('bs58');
 const iso3166 = require('iso-3166-1');
 
-module.exports = async (gateway, submission_value) => {
+module.exports = async (submission_value) => {
   console.log('******/ Dashboard Data CID VALIDATION Task FUNCTION /******');
-  const outputraw = await dataFromCid(gateway, submission_value);
+  const outputraw = await dataFromCid('ipfs.io', submission_value);
   const output = outputraw.data;
   console.log('OUTPUT', output);
   console.log('PUBLIC KEY', output.node_publicKey);

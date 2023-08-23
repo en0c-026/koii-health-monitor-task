@@ -1,4 +1,4 @@
-const { namespaceWrapper } = require('./namespaceWrapper');
+const { namespaceWrapper } = require("./_koiiNode/koiiNode");
 
 // db functions for node proofs
 const getNodeProofCid = async (round) => {
