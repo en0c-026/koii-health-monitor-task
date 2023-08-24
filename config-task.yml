@@ -1,18 +1,18 @@
 # Name and metadata of your task
 task_name: 'Koii Health Monitor'
 author: 'en0c <Lucas Jovanovich>'
-description: 'This task helps the illusaq team retrieve and store data about the Koii Network found at https://koii.illusaq.com/. The information is archived daily on IPFS as a measure to highlight the decentralization efforts of the Koii Network, improve transparency for Koii stakeholders, and illustrate growth of the network. Run this task to help us help each other!'
+description: 'This task helps the illusaq team retrieve and store data about the Koii Network found at https://koii.illusaq.com'
 repositoryUrl: 'https://github.com/en0c-026/koii-health-monitor-task'
 imageUrl: 'imageUrl'
 
 
 # network value can be DEVELOPMENT , ARWEAVE or IPFS, Recommended IPFS as the cli automatically takes care of uploading the executable with the help of web3.js key
-task_executable_network: "DEVELOPMENT"
+task_executable_network: "IPFS"
 
 # Path to your executable webpack if the selected network is IPFS otherwise leave blank
 task_audit_program: ""
 # OPTIONAL only Provide your transaction ID in case of ARWEAVE and in case of DEVELOPMENT give your executable name as main otherwise leave blank
-task_audit_program_id: "main"
+task_audit_program_id: ""
 # Total round time of your task : it must be given in slots and each slot is roughly equal to 408ms
 round_time: 4000
 
