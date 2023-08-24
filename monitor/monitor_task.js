@@ -1,4 +1,5 @@
 require('dotenv').config();
+const fs = require('fs')
 const bs58 = require('bs58');
 const nacl = require('tweetnacl');
 const { Web3Storage, getFilesFromPath } = require('web3.storage');
