@@ -1,5 +1,5 @@
 const { namespaceWrapper } = require('../_koiiNode/koiiNode');
-const monitorTask = require('../monitor_task')
+const monitorTask = require('../monitor/monitor_task')
 const db = require('../db_model');
 
 class Submission {

@@ -1,4 +1,4 @@
-const dataFromCid = require('./helpers/dataFromCid');
+const dataFromCid = require('../helpers/dataFromCid');
 const nacl = require('tweetnacl');
 const bs58 = require('bs58');
 const iso3166 = require('iso-3166-1');

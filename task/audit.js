@@ -1,5 +1,5 @@
 const { namespaceWrapper } = require('../_koiiNode/koiiNode');
-const monitorDataValidate = require('../monitor_data_validate')
+const monitorDataValidate = require('../monitor/monitor_data_validate')
 class Audit {
   async validateNode(submission_value, round) {
     // Write your logic for the validation of submission value here and return a boolean value in response

@@ -3,13 +3,15 @@ const bs58 = require('bs58');
 const nacl = require('tweetnacl');
 const { Web3Storage, getFilesFromPath } = require('web3.storage');
 const { Connection } = require('@_koi/web3.js');
-const getK2Nodes = require('./helpers/getK2Nodes')
+const createFile = require('../helpers/createFile.js');
+const deleteFile = require('../helpers/deleteFile'); 
+const getK2Nodes = require('../helpers/getK2Nodes.js')
 
 const storageClient = new Web3Storage({
   token: process.env.SECRET_WEB3_STORAGE_KEY,
 });
 
-const { namespaceWrapper, K2_NODE_URL } = require('./_koiiNode/koiiNode.js');
+const { namespaceWrapper, K2_NODE_URL } = require('../_koiiNode/koiiNode.js');
 
 module.exports = async () => {
   const keypair = await namespaceWrapper.getSubmitterAccount();
@@ -32,10 +34,11 @@ module.exports = async () => {
   };
 
   const path = `./Monitor/data.json`;
-  const exist = await namespaceWrapper.fs('existsSync', './Monitor')
-  if (!exist) await namespaceWrapper.fs('mkdir', './Monitor')
+  if (!fs.existsSync('./Monitor')) fs.mkdirSync('./Monitor');
 
-  await namespaceWrapper.fs('writeFile', path, JSON.stringify(submission_value))
+  console.log('PATH', path);
+
+  await createFile(path, submission_value);
 
 
   if (storageClient) {
@@ -44,7 +47,7 @@ module.exports = async () => {
 
     console.log('Proof uploaded to IPFS: ', proof_cid);
 
-    await namespaceWrapper.fs('unlink', path);
+    deleteFile(path);
 
     return { proof_cid, timestamp };
 
