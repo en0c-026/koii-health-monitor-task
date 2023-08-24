@@ -8,6 +8,8 @@ const {
 const dataFromCid = require('./helpers/dataFromCid');
 const db = require('./db_model');
 
+const ipfsGateway = 'ipfs.io';
+
 if (app) {
   //  Write your Express Endpoints here.
   //  For Example
@@ -28,8 +30,8 @@ if (app) {
     res.status(200).json({ value: value });
   });
 
-  app.get('/dashboard-data', async (req, res) => {
-    const round = (await namespaceWrapper.getRound()) - 1
+  app.get('/monitor-data', async (req, res) => {
+    const round = (await namespaceWrapper.getRound())
     const nodeproofCid = await db.getNodeProofCid(round)
     if (!round > 0 || !nodeproofCid) {
       return res.status(200).json({
@@ -62,7 +64,7 @@ if (app) {
       return table;
     }
 
-    const outputraw = await dataFromCid('ipfs.io', nodeproofCid);
+    const outputraw = await dataFromCid(ipfsGateway, nodeproofCid);
 
 
     if (!outputraw || !outputraw.data) {
@@ -96,7 +98,7 @@ if (app) {
     });
   });
 
-  app.get('/dashboard-data/:round', async (req, res) => {
+  app.get('/monitor-data/:round', async (req, res) => {
     const { round } = req.params;
     const nodeproofCid = await db.getNodeProofCid(round);
 
@@ -107,7 +109,7 @@ if (app) {
       })
     }
 
-    const outputraw = await dataFromCid('ipfs.io', nodeproofCid);
+    const outputraw = await dataFromCid(ipfsGateway, nodeproofCid);
 
     if (!outputraw || !outputraw.data) {
       res.status(404).json({
